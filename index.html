@@ -1,47 +1,29 @@
-# Old Town Design — Visitor Check-In Kiosk
-
-A touch-friendly visitor check-in system designed for iPad kiosk deployment. Built with React + Vite and integrated with Formspree for email notifications.
-
-## Setup
-
-### 1. Add your Formspree ID
-
-Open `src/App.jsx` and replace `YOUR_FORM_ID` in the CONFIG object at the top:
-
-```js
-const CONFIG = {
-  companyName: "Old Town Design",
-  formspreeId: "xyzabcde", // ← Your Formspree form ID here
-  ...
-};
-```
-
-### 2. Deploy to Vercel
-
-Connect this repo to [Vercel](https://vercel.com) and deploy. Vercel auto-detects Vite — no configuration needed.
-
-### 3. iPad Kiosk Setup
-
-1. Open the deployed URL in Safari on your iPad
-2. Tap **Share → Add to Home Screen** (launches as full-screen web app)
-3. Go to **Settings → Display & Brightness → Auto-Lock → Never**
-4. Go to **Settings → Accessibility → Guided Access** → turn on
-5. Open the app, triple-click the side button to lock into kiosk mode
-
-## Customization
-
-Edit the `CONFIG` object in `src/App.jsx` to change:
-- **Company name**
-- **Visit reasons** dropdown options
-- **Formspree form ID**
-
-Edit the `T` (theme) object to change colors, fonts, etc.
-
-## Local Development
-
-```bash
-npm install
-npm run dev
-```
-
-Opens at `http://localhost:5173`.
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#1B4332" />
+    <title>Old Town Design — Visitor Check-In</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body, #root {
+        width: 100%; height: 100%;
+        overflow: hidden;
+        -webkit-overflow-scrolling: touch;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overscroll-behavior: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
